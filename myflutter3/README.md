@@ -3,14 +3,18 @@
 A new Flutter project.
 
 ## Getting Started
+### 构建和发布为 Android 应用
+- https://flutter.cn/docs/deployment/android
 
-This project is a starting point for a Flutter application.
+* 添加启动图标
+* 启用 Material 组件
+* 创建一个密钥库
+* 使用 R8 缩小你的代码体积
+* 启用 MultiDex
+* 检查 app manifest 文件
+* 检查构建配置
+* 为发布构建应用
+* 发布到 Google Play Store
+* 更新应用版本号
+* Android 发布常见问题
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

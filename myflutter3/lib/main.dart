@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_appauth/flutter_appauth.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 
 void main() {
@@ -60,6 +61,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final storage = new FlutterSecureStorage();
+
   bool _isBusy = false;
   final FlutterAppAuth _appAuth = const FlutterAppAuth();
   String? _codeVerifier;
@@ -402,7 +405,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _processAuthTokenResponse(AuthorizationTokenResponse response) {
+  Future<void> _processAuthTokenResponse(AuthorizationTokenResponse response) async {
     setState(() {
       _accessToken = _accessTokenTextController.text = response.accessToken!;
       _idToken = _idTokenTextController.text = response.idToken!;
@@ -410,6 +413,9 @@ class _MyHomePageState extends State<MyHomePage> {
       _accessTokenExpirationTextController.text =
           response.accessTokenExpirationDateTime!.toIso8601String();
     });
+    print('_processAuthTokenResponse写入token');
+    await storage.read(key: "accessToken");
+    await storage.write(key: "accessToken", value: response!.accessToken!);
   }
 
   void _processAuthResponse(AuthorizationResponse response) {
@@ -434,13 +440,19 @@ class _MyHomePageState extends State<MyHomePage> {
       _accessTokenExpirationTextController.text =
           response.accessTokenExpirationDateTime!.toIso8601String();
     });
+    // print('写入token');
+    // await storage.read(key: "accessToken");
+    // await storage.write(key: "accessToken", value: response!.accessToken!);
   }
 
   Future<void> _testApi() async {
     // TokenResponse? response = authResult;
+    String? accesstoken = await storage.read(key: "accessToken");
+    print('从security storage提取token:'+ accesstoken!);
     final http.Response httpResponse = await http.get(
         Uri.parse('https://oidc-dev.shashago.com/api/message'),
-        headers: <String, String>{'Authorization': 'Bearer $_accessToken'});
+        // headers: <String, String>{'Authorization': 'Bearer $_accessToken'});
+        headers: <String, String>{'Authorization': 'Bearer $accesstoken'});
     setState(() {
       _userInfo = httpResponse.statusCode == 200 ? httpResponse.body : '';
       _isBusy = false;

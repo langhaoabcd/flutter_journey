@@ -9,7 +9,7 @@ flutter.cn samples: https://github.com/cfug/flutter.cn/tree/main/examples
 flutter.dev samples: https://github.com/flutter/samples/tree/main/provider_shopper
 
 ## Dart基础
- oidc-client
+ flutter_appauth
  flutter_secure_storage: 可用于存储令牌、配置等机密信息,保证安全。
       iOS使用Keychain
       Android使用KeyStore, 使用 AES 加密。AES 密钥使用 RSA 加密，RSA 密钥存储在KeyStore中
@@ -50,5 +50,5 @@ flutter.dev samples: https://github.com/flutter/samples/tree/main/provider_shopp
    计算sha1
    keystore
 .百度地图(android&ios) -> https://lbsyun.baidu.com/faq/api?title=flutter/loc/guide/solocationMany
-  keystore?
-  sha1?
+  keystore
+  sha1

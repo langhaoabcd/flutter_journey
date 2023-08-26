@@ -7,6 +7,7 @@ A new Flutter project.
 dart文档：https://dart.cn/language
 flutter.cn samples: https://github.com/cfug/flutter.cn/tree/main/examples
 flutter.dev samples: https://github.com/flutter/samples/tree/main/provider_shopper
+mpflutter https://mpflutter.com/
 
 ## Dart基础
  flutter_appauth

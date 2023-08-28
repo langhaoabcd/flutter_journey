@@ -1,11 +1,18 @@
 import 'dart:convert';
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_appauth/flutter_appauth.dart';
+import 'package:flutter_bmflocation/flutter_bmflocation.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
+import 'package:myflutter3/seriesLocationPage.dart';
+import 'package:myflutter3/singleLocationPage.dart';
+import 'package:flutter_baidu_mapapi_base/flutter_baidu_mapapi_base.dart'
+    show BMFMapSDK, BMF_COORD_TYPE;
+import 'package:permission_handler/permission_handler.dart';
 
 void main() {
   runApp(const MyApp());
@@ -111,6 +118,69 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     initialization();
+
+    initMapLocation();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  void initMapLocation(){
+    LocationFlutterPlugin myLocPlugin = LocationFlutterPlugin();
+
+    /// 动态申请定位权限
+    requestPermission();
+    // 设置是否隐私政策
+    myLocPlugin.setAgreePrivacy(true);
+    BMFMapSDK.setAgreePrivacy(true);
+
+    if (Platform.isIOS) {
+      /// 设置ios端ak, android端ak可以直接在清单文件中配置
+      myLocPlugin.authAK('请在此输入您在开放平台上申请的API_KEY');
+      BMFMapSDK.setApiKeyAndCoordType(
+          '请在此输入您在开放平台上申请的API_KEY', BMF_COORD_TYPE.BD09LL);
+    } else if (Platform.isAndroid) {
+      // Android 目前不支持接口设置Apikey,
+      // 请在主工程的Manifest文件里设置，详细配置方法请参考官网(https://lbsyun.baidu.com/)demo
+      BMFMapSDK.setCoordType(BMF_COORD_TYPE.BD09LL);
+    }
+
+    /// iOS端鉴权结果
+    // myLocPlugin.getApiKeyCallback(callback: (String result) {
+    //   String str = result;
+    //   print('鉴权结果：' + str);
+    // });
+  }
+
+
+// 动态申请定位权限
+  void requestPermission() async {
+    // 申请权限
+    bool hasLocationPermission = await requestLocationPermission();
+    if (hasLocationPermission) {
+      // 权限申请通过
+    } else {}
+  }
+
+  /// 申请定位权限
+  /// 授予定位权限返回true， 否则返回false
+  Future<bool> requestLocationPermission() async {
+    //获取当前的权限
+    var status = await Permission.location.status;
+    if (status == PermissionStatus.granted) {
+      //已经授权
+      return true;
+    } else {
+      //未授权则发起一次申请
+      status = await Permission.location.request();
+      if (status == PermissionStatus.granted) {
+        return true;
+      } else {
+        return false;
+      }
+    }
   }
 
   void initialization() async {
@@ -164,6 +234,25 @@ class _MyHomePageState extends State<MyHomePage> {
             // wireframe for each widget.
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+
+              ElevatedButton(
+                child: const Text('百度定位'),
+                onPressed: () => {
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => SingleLocationPage()),
+                  )
+                },
+              ),
+              ElevatedButton(
+                child: const Text('百度连续定位'),
+                onPressed: () => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => SeriesLocationPage()),
+                  )
+                },
+              ),
               ElevatedButton(
                 child: const Text('Sign in with no code exchange'),
                 onPressed: () => _signInWithNoCodeExchange(),

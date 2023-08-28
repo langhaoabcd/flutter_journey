@@ -29,5 +29,8 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="Ahelu4jRMt3wI2ZLBaXVz42VnlIBk5f7" />
     </application>
 </manifest>

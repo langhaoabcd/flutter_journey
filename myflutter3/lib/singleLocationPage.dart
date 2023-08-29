@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -15,27 +16,35 @@ class SingleLocationPage extends StatefulWidget {
 
 class _MyAppState extends State<SingleLocationPage> {
   BaiduLocation _loationResult = BaiduLocation();
-  late BMFMapController _myMapController;
+  // late BMFMapController _myMapController;
   final LocationFlutterPlugin _myLocPlugin = LocationFlutterPlugin();
   bool _suc = false;
+
+  // BmfLocation bmfLocation = BmfLocation();
+  // LocationOptions locationOptions = LocationOptions(
+  //     locationMode: LocationMode.Hight_Accuracy,
+  //     locationPurpose: LocationPurpose.SignleLocation
+  // );
 
   @override
   void initState() {
     super.initState();
 
     ///单次定位时如果是安卓可以在内部进行判断调用连续定位
-    if (Platform.isIOS) {
+    // if (Platform.isIOS) {
+    //   ///接受定位回调
+    //   _myLocPlugin.singleLocationCallback(callback: (BaiduLocation result) {
+    //     setState(() {
+    //       _loationResult = result;
+    //
+    //       locationFinish();
+    //     });
+    //   });
+    // } else if (Platform.isAndroid) {
       ///接受定位回调
-      _myLocPlugin.singleLocationCallback(callback: (BaiduLocation result) {
-        setState(() {
-          _loationResult = result;
-
-          locationFinish();
-        });
-      });
-    } else if (Platform.isAndroid) {
-      ///接受定位回调
-      _myLocPlugin.singleLocationCallback(callback: (BaiduLocation result) {
+      print('定位回调');
+      _myLocPlugin.seriesLocationCallback(callback: (BaiduLocation result) {
+        print('定位回调 baiduLocation result: ${result.getMap()}');
         setState(() {
           _loationResult = result;
 
@@ -43,7 +52,7 @@ class _MyAppState extends State<SingleLocationPage> {
           _myLocPlugin.stopLocation();
         });
       });
-    }
+    // }
   }
 
   @override
@@ -66,7 +75,7 @@ class _MyAppState extends State<SingleLocationPage> {
             },
           ),
           body: Column(children: [
-            _createMapContainer(),
+            // _createMapContainer(),
             Container(height: 20),
             SizedBox(
               height: MediaQuery.of(context).size.height - 500,
@@ -79,16 +88,17 @@ class _MyAppState extends State<SingleLocationPage> {
         ));
   }
 
-  Widget _createMapContainer() {
-    return SizedBox(
-        height: 300,
-        child: BMFMapWidget(
-          onBMFMapCreated: (controller) {
-            onBMFMapCreated(controller);
-          },
-          mapOptions: initMapOptions(),
-        ));
-  }
+  // Widget _createMapContainer() {
+  //   print("创建Map init");
+  //   return SizedBox(
+  //       height: 300,
+  //       child: BMFMapWidget(
+  //         onBMFMapCreated: (controller) {
+  //           onBMFMapCreated(controller);
+  //         },
+  //         mapOptions: initMapOptions(),
+  //       ));
+  // }
 
   Widget _createButtonContainer() {
     return Container(
@@ -128,7 +138,7 @@ class _MyAppState extends State<SingleLocationPage> {
     Map androidMap = initAndroidOptions().getMap();
 
     _suc = await _myLocPlugin.prepareLoc(androidMap, iosMap);
-    print('设置定位参数：$iosMap');
+    print('设置定位参数over：$_suc');
   }
 
   /// 设置地图参数
@@ -142,7 +152,10 @@ class _MyAppState extends State<SingleLocationPage> {
         isNeedNewVersionRgc: true,
         isNeedLocationDescribe: true,
         openGps: true,
-        locationPurpose: BMFLocationPurpose.sport,
+        locationPurpose: BMFLocationPurpose.signIn,
+        // 设置发起定位请求的间隔，int类型，单位ms
+        // 如果设置为0，则代表单次定位，即仅定位一次，默认为0
+        scanspan: 10,
         coordType: BMFLocationCoordType.bd09ll);
     return options;
   }
@@ -157,37 +170,48 @@ class _MyAppState extends State<SingleLocationPage> {
 
   /// 启动定位
   Future<void> _startLocation() async {
-    print('_startLocation');
-    if (Platform.isIOS) {
-      _suc = await _myLocPlugin
-          .singleLocation({'isReGeocode': true, 'isNetworkState': true});
-      print('开始单次定位：$_suc');
-    } else if (Platform.isAndroid) {
+    // print('_startLocation');
+    // if (Platform.isIOS) {
+    //   _suc = await _myLocPlugin
+    //       .singleLocation({'isReGeocode': true, 'isNetworkState': true});
+    //   print('开始单次定位：$_suc');
+    // } else if (Platform.isAndroid) {
       _suc = await _myLocPlugin.startLocation();
       print('单次定位结果: $_suc');
-    }
+
+    // _myLocPlugin.singleLocationCallback(callback: (BaiduLocation result) {
+    //   print('定位回调res');
+    //   setState(() {
+    //     _loationResult = result;
+    //
+    //     locationFinish();
+    //     // _myLocPlugin.stopLocation();
+    //   });
+    // });
+
+    // }
   }
 
   ///定位完成添加mark
   void locationFinish() {
     /// 创建BMFMarker
-    BMFMarker marker = BMFMarker.icon(
-        position: BMFCoordinate(
-            _loationResult.latitude ?? 0.0, _loationResult.longitude ?? 0.0),
-        title: 'flutterMaker',
-        identifier: 'flutter_marker',
-        icon: 'resoures/icon_mark.png');
-    print(_loationResult.latitude.toString() +
+    // BMFMarker marker = BMFMarker.icon(
+    //     position: BMFCoordinate(
+    //         _loationResult.latitude ?? 0.0, _loationResult.longitude ?? 0.0),
+    //     title: 'flutterMaker',
+    //     identifier: 'flutter_marker',
+    //     icon: 'resoures/icon_mark.png');
+    print("经纬度："+_loationResult.latitude.toString() +
         _loationResult.longitude.toString());
 
     /// 添加Marker
-    _myMapController.addMarker(marker);
+    // _myMapController.addMarker(marker);
 
     ///设置中心点
-    _myMapController.setCenterCoordinate(
-        BMFCoordinate(
-            _loationResult.latitude ?? 0.0, _loationResult.longitude ?? 0.0),
-        false);
+    // _myMapController.setCenterCoordinate(
+    //     BMFCoordinate(
+    //         _loationResult.latitude ?? 0.0, _loationResult.longitude ?? 0.0),
+    //     false);
   }
 
   /// 设置地图参数
@@ -200,12 +224,13 @@ class _MyAppState extends State<SingleLocationPage> {
   }
 
   /// 创建完成回调
-  void onBMFMapCreated(BMFMapController controller) {
-    _myMapController = controller;
-
-    /// 地图加载回调
-    _myMapController.setMapDidLoadCallback(callback: () {
-      print('mapDidLoad-地图加载完成');
-    });
-  }
+  // void onBMFMapCreated(BMFMapController controller) {
+  //   print('onBMFMapCreated..');
+  //   _myMapController = controller;
+  //
+  //   /// 地图加载回调
+  //   _myMapController.setMapDidLoadCallback(callback: () {
+  //     print('mapDidLoad-地图加载完成');
+  //   });
+  // }
 }

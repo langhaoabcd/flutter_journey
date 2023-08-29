@@ -13,3 +13,6 @@ A new Flutter project.
     https://flutter.cn/docs/deployment/android#reviewing-the-app-manifest
     keytool -genkey -v -keystore D:\keys\upload-keystore.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias key  
     flutter build apk
+- 使用keytool 获取Android签名证书的sha1值
+  cd C:\Users\Administrator\.android  
+  keytool -list -v -keystore debug.keystore (密钥口令是android）  

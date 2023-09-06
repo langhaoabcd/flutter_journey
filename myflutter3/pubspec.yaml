@@ -45,31 +45,6 @@ dependencies:
   flutter_baidu_mapapi_map: ^3.4.1+1
   permission_handler: ^10.4.3
 
-
-flutter_launcher_icons:
-  #  image_path: "assets/images/icon-128x128.png"
-  image_path_android: "assets/images/icon-710x599-android.png"
-  image_path_ios: "assets/images/icon-1024x1024.png"
-  android: true # can specify file name here e.g. "ic_launcher"
-  ios: true # can specify file name here e.g. "My-Launcher-Icon"
-#  adaptive_icon_background: "assets/images/christmas-background.png" # only available for Android 8.0 devices and above
-#  adaptive_icon_foreground: "assets/images/icon-foreground-432x432.png" # only available for Android 8.0 devices and above
-  min_sdk_android: 19 # android min sdk min:16, default 21
-  remove_alpha_ios: true
-  background_color_ios: "#ffffff"
-  web:
-    generate: true
-    image_path: "assets/images/icon-1024x1024.png"
-    background_color: "#hexcode"
-    theme_color: "#hexcode"
-  windows:
-    generate: true
-    image_path: "assets/images/icon-1024x1024.png"
-    icon_size: 48 # min:48, max:256, default: 48
-  macos:
-    generate: true
-    image_path: "assets/images/icon-1024x1024.png"
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -98,8 +73,9 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/
-    - assets/images/
+    - assets/icon/
     - assets/splash/
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -127,6 +103,30 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
 
+
+flutter_launcher_icons:
+  #  image_path: "assets/images/icon-128x128.png"
+  image_path_android: "assets/images/icon-710x599-android.png"
+  image_path_ios: "assets/images/icon-1024x1024.png"
+  android: true # can specify file name here e.g. "ic_launcher"
+  ios: true # can specify file name here e.g. "My-Launcher-Icon"
+  #  adaptive_icon_background: "assets/images/christmas-background.png" # only available for Android 8.0 devices and above
+  #  adaptive_icon_foreground: "assets/images/icon-foreground-432x432.png" # only available for Android 8.0 devices and above
+  min_sdk_android: 19 # android min sdk min:16, default 21
+  remove_alpha_ios: true
+  background_color_ios: "#ffffff"
+  web:
+    generate: true
+    image_path: "assets/icon/icon-1024x1024.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "assets/icon/icon-1024x1024.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/icon/icon-1024x1024.png"
 
 flutter_native_splash:
 
@@ -187,7 +187,7 @@ flutter_native_splash:
     color: "#42a5f5"
 
     # App icon background color.
-    icon_background_color: "#eeeeee"
+#    icon_background_color: "#eeeeee"
 
     # The branding property allows you to specify an image used as branding in the splash screen.
     #branding: assets/dart.png

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myfltter1/pages/formApp/WebViewPage.dart';
 import 'package:myfltter1/pages/layout/ContainerPage.dart';
+import 'package:myfltter1/pages/layout/Sizing.dart';
 import 'package:myfltter1/theme/AppTheme.dart';
 import 'package:myfltter1/widgets/XiDengLogo.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -60,6 +61,11 @@ final demos = [
     name: '布局1-grid-list',
     route: 'layout3',
     builder: (context) => const GrildList1(),
+  ),
+  Demo(
+    name: '布局1-sizing',
+    route: 'layout4',
+    builder: (context) => const Sizing(),
   )
 ];
 

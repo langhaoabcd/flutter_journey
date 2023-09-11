@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:myfltter1/pages/oauthApp/AuthApp.dart';
 import 'package:myfltter1/pages/providerCart/models/CatalogModel.dart';
 import 'package:myfltter1/pages/providerCart/store/CartModel.dart';
 import 'package:myfltter1/pages/providerCounter/Counter.dart';
@@ -7,7 +6,6 @@ import 'package:myfltter1/pages/providerCounter/MyCounterHomePage.dart';
 import 'package:myfltter1/router/router.dart';
 import 'package:provider/provider.dart';
 
-import 'pages/baiduLocation/LocationApp.dart';
 import 'pages/formApp/FormApp.dart';
 
 void main() {
@@ -18,10 +16,6 @@ void main() {
   // )); //测试状态管理1。Counter
 
   runApp(const FormApp()); //测试表单
-
-  // runApp(const AuthApp()); //测试oidc
-
-  // runApp(const LocationApp()); //测试百度定位
 
   // runApp(MultiProvider(
   //   providers: [

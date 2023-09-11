@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myfltter1/pages/formApp/WebViewPage.dart';
+import 'package:myfltter1/pages/layout/ContainerPage.dart';
 import 'package:myfltter1/theme/AppTheme.dart';
 import 'package:myfltter1/widgets/XiDengLogo.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/myflutter_app_localizations.dart';
 
+import '../layout/Page1.dart';
+import '../layout/grildList1.dart';
 import 'autofill.dart';
 import 'form_widgets.dart';
 import 'sign_in_http.dart';
@@ -43,6 +46,21 @@ final demos = [
   //     title: "百度一下",
   //   ),
   // ),
+  Demo(
+    name: '布局1-Lake',
+    route: 'layout1',
+    builder: (context) => const Page1(),
+  ),
+  Demo(
+    name: '布局1-container1',
+    route: 'layout2',
+    builder: (context) => const ContainerPage(),
+  ),
+  Demo(
+    name: '布局1-grid-list',
+    route: 'layout3',
+    builder: (context) => const GrildList1(),
+  )
 ];
 
 final _router = GoRouter(routes: [
@@ -137,8 +155,8 @@ class HomePage extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          ...[const XiDengLogo(height: 100),
-            
+          ...[
+            const XiDengLogo(height: 100),
             Text(
               AppLocalizations.of(context)!.helloWorld,
               // style: const TextStyle(fontFamily: 'NotoSansSc'),

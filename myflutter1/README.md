@@ -26,7 +26,7 @@ mpflutter https://mpflutter.com/
 3.状态管理
   provider -> https://github.com/rrousselGit/provider/blob/master/resources/translations/zh-CN/README.md
 4.序列化 -> https://flutter.cn/docs/data-and-backend/serialization/json
-      使用json_annotation以及自动生成模型
+      使用json_annotation以及自动生成分布类!!!
       flutter pub add json_annotation
       flutter pub add --dev build_runner
       flutter pub add --dev json_serializable
@@ -45,7 +45,7 @@ mpflutter https://mpflutter.com/
 设置
   主题 深色&浅色&随系统
   国际化 中文&英文&随系统 https://flutter.cn/docs/accessibility-and-localization/internationalization
-  中文字体 https://flutter.cn/docs/cookbook/design/fonts
+  支持中文字体！！！ https://flutter.cn/docs/cookbook/design/fonts
 
 打包部署
    计算sha1

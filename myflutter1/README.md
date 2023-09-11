@@ -16,11 +16,31 @@ mpflutter https://mpflutter.com/
       Android使用KeyStore, 使用 AES 加密。AES 密钥使用 RSA 加密，RSA 密钥存储在KeyStore中
       Linux使用libsecret
       Web使用 WebCrypto 进行实验性实现
+
 ## 学习步骤
 0.组件的使用
   组件目录 https://flutter.cn/docs/reference/widgets
   webview_flutter(android&ios): https://pub-web.flutter-io.cn/packages/webview_flutter/versions/2.0.6/install
   webview_flutter_web(web)
+  
+  在Flutter中,EdgeInsets类是用于表示一个widget四周的空白边距(padding)。
+  主要包含以下属性:
+      EdgeInsets.all(value): 所有方向均为value的边距
+      EdgeInsets.only({top, right, bottom, left }): 分别指定四个方向的边距值
+      EdgeInsets.symmetric({vertical, horizontal}): 分别指定垂直和水平方向的边距值
+  `Container(
+      padding: EdgeInsets.all(10.0), // 所有方向10像素边距
+
+      padding: EdgeInsets.only(
+      top: 10.0, 
+      left: 20.0  
+      ), // 左10,上20像素边距
+
+      padding: EdgeInsets.symmetric(
+      vertical: 20.0,
+      horizontal: 5.0
+      ), // 垂直20,水平5像素边距 
+      )`
 1.导航路由go_router
 2.表单交互
 3.状态管理

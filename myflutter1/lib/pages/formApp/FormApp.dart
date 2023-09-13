@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myfltter1/pages/formApp/WebViewPage.dart';
 import 'package:myfltter1/pages/layout/ContainerPage.dart';
+import 'package:myfltter1/pages/layout/RowColumn.dart';
 import 'package:myfltter1/pages/layout/Sizing.dart';
 import 'package:myfltter1/theme/AppTheme.dart';
 import 'package:myfltter1/widgets/XiDengLogo.dart';
@@ -66,6 +67,11 @@ final demos = [
     name: '布局1-sizing',
     route: 'layout4',
     builder: (context) => const Sizing(),
+  ),
+  Demo(
+    name: '布局1-row column',
+    route: 'layout5',
+    builder: (context) => const RowColumn(),
   )
 ];
 

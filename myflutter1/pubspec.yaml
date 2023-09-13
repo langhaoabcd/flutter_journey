@@ -45,6 +45,7 @@ dependencies:
   intl: any
   flutter_secure_storage: ^8.0.0
   flutter_appauth: ^6.0.2
+  dio: ^5.3.2
 
 dev_dependencies:
   flutter_test:

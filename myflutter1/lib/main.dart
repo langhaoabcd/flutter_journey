@@ -15,6 +15,12 @@ void main() {
   //   child: const MyCounterHomePage(),
   // )); //测试状态管理1。Counter
 
+  Map<String, dynamic> res = <String, dynamic>{
+    'id': "111",
+    'author': "aaaa",
+  };
+  // res.map()
+
   runApp(const FormApp()); //测试表单
 
   // runApp(MultiProvider(

@@ -15,9 +15,15 @@ class _SignInHttpState extends State<SignInHttp> {
   @override
   void initState() {
     super.initState();
+    // var list = Future.value(WeatherService.list())
+    //     .then((result) => print('Result: ${result.first.toJson()}'));
+    load();
+  }
+
+  void load() async {
     print('load data...');
-    var list = Future.value(WeatherService.list())
-        .then((result) => print('Result: ${result.first.toJson()}'));
+    var list = await WeatherService.list();
+    print('Result: ${list.first.toJson()}');
   }
 
   @override

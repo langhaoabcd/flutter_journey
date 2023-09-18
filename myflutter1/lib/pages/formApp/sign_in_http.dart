@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../services/WeatherService.dart';
 import 'AccountData.dart';
 
 class SignInHttp extends StatefulWidget {
@@ -10,6 +11,15 @@ class SignInHttp extends StatefulWidget {
 
 class _SignInHttpState extends State<SignInHttp> {
   AccountData formData = AccountData();
+
+  @override
+  void initState() {
+    super.initState();
+    print('load data...');
+    var list = Future.value(WeatherService.list())
+        .then((result) => print('Result: ${result.first.toJson()}'));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -51,6 +51,7 @@ mpflutter https://mpflutter.com/
       flutter pub add --dev build_runner
       flutter pub add --dev json_serializable
       flutter packages pub run build_runner build
+      flutter pub run build_runner build --编译
       flutter pub run build_runner watch 启动监听持续生成代码
 5.持久化 -> https://flutter.cn/docs/cookbook/persistence/key-value
       保存用户数据，保存设置选项，主题

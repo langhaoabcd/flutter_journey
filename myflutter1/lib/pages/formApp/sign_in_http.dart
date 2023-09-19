@@ -21,9 +21,9 @@ class _SignInHttpState extends State<SignInHttp> {
   }
 
   void load() async {
-    print('load data...');
+    debugPrint('load data...');
     var list = await WeatherService.list();
-    print('Result: ${list.first.toJson()}');
+    debugPrint('Result: ${list.first.toJson()}');
   }
 
   @override

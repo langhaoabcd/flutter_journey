@@ -1,29 +1,35 @@
 import 'package:dio/dio.dart';
-
-import 'interceptors/timeout_interceptor.dart';
+import 'package:flutter/material.dart';
 
 class HttpHelper {
-  static const String baseUrl = "http://localhost:5141";
+  static const String baseUrl = 'http://localhost:5141';
 
   static Dio dio = Dio()
     ..options.baseUrl = baseUrl
     ..options.contentType = Headers.jsonContentType
-    ..options.headers = {"Content-Type": "application/json"}
+    ..options.headers = {'Content-Type': 'application/json'}
     ..options.connectTimeout = const Duration(seconds: 20)
-    ..options.receiveTimeout = const Duration(seconds: 20);
-
-  static init() {
-    // 添加拦截器
-    dio.interceptors.add(InterceptorsWrapper(onResponse: (response, handler) {
-      // 设置允许所有域名访问
+    ..options.receiveTimeout = const Duration(seconds: 20)
+    ..interceptors.add(InterceptorsWrapper(onResponse: (response, handler) {
       response.headers.add('Access-Control-Allow-Origin', '*');
       response.headers.add('Access-Control-Allow-Headers', '*');
       response.headers.add('Access-Control-Allow-Methods', '*');
       return handler.next(response);
-    }));
-
-    dio.interceptors.add(InterceptorsWrapper(onError: (e, handler) {
-      // 处理401错误
+    }, onError: (e, handler) {
+      debugPrint('错误请求：${e.message}');
+      switch (e.type) {
+        case DioExceptionType.connectionTimeout: // 连接超时
+        case DioExceptionType.sendTimeout: // 请求超时
+        case DioExceptionType.receiveTimeout: // 响应超时
+          debugPrint('网络连接超时');
+          break;
+        case DioExceptionType.connectionError:
+          debugPrint('网络连接错误');
+          break;
+        default:
+          break;
+      }
+      //根据statusCode处理响应错误
       if (e.response?.statusCode == 401) {
         // 清除本地存储
         // LocalStorage.clear();
@@ -34,6 +40,9 @@ class HttpHelper {
       // 其他错误,继续抛出
       return handler.next(e);
     }));
+
+  static init() {
+    debugPrint('初始化dio');
   }
 
   static Future<T> get<T>(String url, {params}) async {
@@ -47,18 +56,16 @@ class HttpHelper {
     return _handleResponse<T>(response);
   }
 
-//   // /*
-//   //   表单形式
-//   //  */
-//   // static Future<Map<String, dynamic>> postForm(
-//   //     String path, Map<String, dynamic> map) async {
-//   //   var response = await getInstance()!.dio.post(path,
-//   //       data: map,
-//   //       options: Options(
-//   //           contentType: "application/x-www-form-urlencoded",
-//   //           headers: {"Content-Type": "application/x-www-form-urlencoded"}));
-//   //   return processResponse(response);
-//   // }
+  /// 表单形式
+  static Future<T> postForm<T>(String url, {data, params}) async {
+    Response response = await dio.post(url,
+        data: data,
+        queryParameters: params,
+        options: Options(
+            contentType: 'application/x-www-form-urlencoded',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}));
+    return _handleResponse<T>(response);
+  }
 
   static Future<T> put<T>(String url, {data, params}) async {
     final response = await dio.put(url, data: data, queryParameters: params);

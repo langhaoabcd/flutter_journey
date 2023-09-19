@@ -5,6 +5,7 @@ A new Flutter project.
 ## Getting Started
 中文文档：https://flutter.cn/docs/ui
 dart文档：https://dart.cn/language
+dart hub: https://pub-web.flutter-io.cn/
 flutter.cn samples: https://github.com/cfug/flutter.cn/tree/main/examples
 flutter.dev samples: https://github.com/flutter/samples/tree/main/provider_shopper
 mpflutter https://mpflutter.com/
@@ -58,7 +59,7 @@ mpflutter https://mpflutter.com/
       kv: shared_preferences
       sqlite: sqflite 
 6.网络&HTTP -> https://flutter.cn/docs/data-and-backend/networking
-      http: dio
+      http: dio //https://github.com/cfug/dio/blob/main/dio/README-ZH.md
       websocket: web_socket_channel
 7.资源&媒体
       local: assess_path

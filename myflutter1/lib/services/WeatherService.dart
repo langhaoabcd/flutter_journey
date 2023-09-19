@@ -1,4 +1,4 @@
-import 'package:myfltter1/dto/WeatherForecast.dart';
+import '../model/dto/WeatherForecast.dart';
 
 import '../utils/net/http.dart';
 

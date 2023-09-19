@@ -1,4 +1,4 @@
-import 'package:myfltter1/dto/ArticleDto.dart';
+import '../model/dto/ArticleDto.dart';
 
 import '../model/PageModel.dart';
 import '../utils/net/http.dart';

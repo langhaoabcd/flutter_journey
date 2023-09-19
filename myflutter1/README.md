@@ -18,6 +18,11 @@ mpflutter https://mpflutter.com/
       Linux使用libsecret
       Web使用 WebCrypto 进行实验性实现
 
+--GlobalKey获取buildContext
+GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+navigatorKey.currentContext
+
+
 ## 学习步骤
 0.组件的使用
   组件目录 https://flutter.cn/docs/reference/widgets

@@ -29,7 +29,7 @@ class _SignInHttpState extends State<SignInHttp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Sign in Form")),
+      appBar: AppBar(title: const Text('Sign in Form')),
       body: Form(
           child: Scrollbar(
         child: SingleChildScrollView(

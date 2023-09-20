@@ -21,7 +21,7 @@ mpflutter https://mpflutter.com/
 --GlobalKey获取buildContext
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 navigatorKey.currentContext
-
+flutter_spinkit loading动画库
 
 ## 学习步骤
 0.组件的使用

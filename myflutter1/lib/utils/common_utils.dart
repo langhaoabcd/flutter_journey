@@ -2,13 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../constants/address.dart';
 import '../constants/gsy_style.dart';
-import 'navigator_utils.dart';
 
-/**
- * 通用逻辑
- * Created by guoshuyu
- * Date: 2018-07-16
- */
+/// 通用逻辑
+/// Created by guoshuyu
+/// Date: 2018-07-16
 
 typedef StringList = List<String>;
 
@@ -35,10 +32,7 @@ class CommonUtils {
   }
 
   static String getUserChartAddress(String userName) {
-    return Address.graphicHost +
-        GSYColors.primaryValueString.replaceAll('#', '') +
-        '/' +
-        userName;
+    return '${Address.graphicHost}${GSYColors.primaryValueString.replaceAll('#', '')}/$userName';
   }
 
   ///日期格式转换

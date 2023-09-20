@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../services/WeatherService.dart';
-import 'AccountData.dart';
+import '../../services/weather_service.dart';
+import '../../model/account_data.dart';
 
 class SignInHttp extends StatefulWidget {
   const SignInHttp({Key? key}) : super(key: key);

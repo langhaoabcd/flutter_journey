@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myfltter1/pages/providerCart/store/CartModel.dart';
+import 'package:myfltter1/pages/provider_cart/store/cart_model.dart';
 import 'package:provider/provider.dart';
 
 class MyCart extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'AppConfigModel.g.dart';
+part 'app_config_model.g.dart';
 
 @JsonSerializable()
 class AppConfigModel {

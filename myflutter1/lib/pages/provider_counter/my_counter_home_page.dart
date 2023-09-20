@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myfltter1/pages/providerCounter/Counter.dart';
+import 'package:myfltter1/pages/provider_counter/counter.dart';
 import 'package:provider/provider.dart';
 
 class MyCounterHomePage extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myfltter1/pages/providerCart/models/CatalogModel.dart';
-import 'package:myfltter1/pages/providerCart/store/CartModel.dart';
+import 'package:myfltter1/pages/provider_cart/models/catalog_model.dart';
+import 'package:myfltter1/pages/provider_cart/store/cart_model.dart';
 import 'package:provider/provider.dart';
 
 class MyCatalog extends StatelessWidget {

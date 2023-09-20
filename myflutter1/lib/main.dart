@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:myfltter1/pages/providerCart/models/CatalogModel.dart';
-import 'package:myfltter1/pages/providerCart/store/CartModel.dart';
-import 'package:myfltter1/pages/providerCounter/Counter.dart';
-import 'package:myfltter1/pages/providerCounter/MyCounterHomePage.dart';
+import 'package:myfltter1/pages/provider_cart/models/catalog_model.dart';
+import 'package:myfltter1/pages/provider_cart/store/cart_model.dart';
+import 'package:myfltter1/pages/provider_counter/counter.dart';
+import 'package:myfltter1/pages/provider_counter/my_counter_home_page.dart';
 import 'package:myfltter1/router/router.dart';
 import 'package:provider/provider.dart';
 
-import 'pages/formApp/FormApp.dart';
+import 'pages/form_app/form_app.dart';
 
 void main() {
   // runApp(const MyApp());

@@ -1,6 +1,6 @@
-import '../model/dto/ArticleDto.dart';
+import '../model/dto/article_dto.dart';
 
-import '../model/PageModel.dart';
+import '../model/page_model.dart';
 import '../utils/net/http.dart';
 
 class AccountService {

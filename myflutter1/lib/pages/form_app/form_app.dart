@@ -8,6 +8,7 @@ import 'package:myfltter1/theme/app_theme.dart';
 import 'package:myfltter1/widgets/xi_deng_logo.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/myflutter_app_localizations.dart';
+import 'package:oktoast/oktoast.dart';
 
 import '../layout/page1.dart';
 import '../layout/grild_list1.dart';
@@ -120,37 +121,37 @@ class _FormAppState extends State<FormApp> {
 
   @override
   Widget build(BuildContext context) {
-    return
-      MaterialApp.router(
-        title: 'Form Samples',
-        locale: _locale,
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        supportedLocales: AppLocalizations.supportedLocales,
-        //可自动替换下列语句
-        // localizationsDelegates: [
-        //   AppLocalizations.delegate, // Add this line
-        //   GlobalMaterialLocalizations.delegate,
-        //   GlobalWidgetsLocalizations.delegate,
-        //   GlobalCupertinoLocalizations.delegate,
-        // ],
-        // supportedLocales: [
-        //   Locale('zh'),
-        //   Locale('en'),
-        //   Locale.fromSubtags(
-        //     languageCode: 'zh',
-        //     scriptCode: 'Hans',
-        //     countryCode: 'CN'), // 'zh_Hans_CN'
-        // Locale.fromSubtags(
-        //     languageCode: 'zh',
-        //     scriptCode: 'Hant',
-        //     countryCode: 'TW')
-        // ],
-        // themeMode: ThemeMode.system, //设置主题跟随系统，深浅色主题
-        // darkTheme: darkTheme,
-        // theme: lightTheme,
-        theme:
-            _theme, //自定义设置主题 ThemeData(primarySwatch: Colors.blue, useMaterial3: true),
-        routerConfig: _router);
+    return OKToast(
+        child: MaterialApp.router(
+            title: 'Form Samples',
+            theme: _theme,
+            locale: _locale,
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            //可自动替换下列语句
+            // localizationsDelegates: [
+            //   AppLocalizations.delegate, // Add this line
+            //   GlobalMaterialLocalizations.delegate,
+            //   GlobalWidgetsLocalizations.delegate,
+            //   GlobalCupertinoLocalizations.delegate,
+            // ],
+            // supportedLocales: [
+            //   Locale('zh'),
+            //   Locale('en'),
+            //   Locale.fromSubtags(
+            //     languageCode: 'zh',
+            //     scriptCode: 'Hans',
+            //     countryCode: 'CN'), // 'zh_Hans_CN'
+            // Locale.fromSubtags(
+            //     languageCode: 'zh',
+            //     scriptCode: 'Hant',
+            //     countryCode: 'TW')
+            // ],
+            // themeMode: ThemeMode.system, //设置主题跟随系统，深浅色主题
+            // darkTheme: darkTheme,
+            // theme: lightTheme,
+            //自定义设置主题 ThemeData(primarySwatch: Colors.blue, useMaterial3: true),
+            routerConfig: _router));
   }
 }
 

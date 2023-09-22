@@ -33,18 +33,16 @@ class HttpHelper {
           //   toastLength: Toast.LENGTH_LONG,
           //   gravity: ToastGravity.TOP,
           // );
-
           break;
         case DioExceptionType.connectionError:
-          debugPrint('网络连接错误');
-          // Fluttertoast.showToast(
-          //   msg: '无法连接到服务器,请检查你的网络!',
-          //   toastLength: Toast.LENGTH_LONG,
-          //   gravity: ToastGravity.CENTER
-          // );
+          // debugPrint('网络连接错误');
+          Fluttertoast.showToast(
+              msg: '无法连接到服务器,请检查你的网络!',
+              toastLength: Toast.LENGTH_LONG,
+              gravity: ToastGravity.CENTER);
           //use okToast
           showToast(
-             '无法连接到服务器,请检查你的网络!',
+            '无法连接到服务器,请检查你的网络!',
             // toastLength: Toast.LENGTH_LONG,
             // gravity: ToastGravity.CENTER
           );

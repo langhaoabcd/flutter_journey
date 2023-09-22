@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:myfltter1/pages/provider_cart/models/catalog_model.dart';
 import 'package:myfltter1/pages/provider_cart/store/cart_model.dart';
 import 'package:myfltter1/pages/provider_counter/counter.dart';
@@ -21,12 +22,9 @@ void main() {
     'author': "aaaa",
   };
   // res.map()
+  // Intl.defaultLocale = 'zh_CN';
 
-  runApp(
-      OKToast(child:
-           const FormApp()) //测试表单
-        ,);
-
+  runApp(const FormApp()); //测试表单
 
   // runApp(MultiProvider(
   //   providers: [

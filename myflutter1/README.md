@@ -22,6 +22,7 @@ mpflutter https://mpflutter.com/
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 navigatorKey.currentContext
 flutter_spinkit loading动画库
+OkToast/FlutterToast(各个平台样式会不一致)
 
 ## 学习步骤
 0.组件的使用

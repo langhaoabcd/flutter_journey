@@ -4,6 +4,7 @@ import 'package:myfltter1/pages/provider_cart/store/cart_model.dart';
 import 'package:myfltter1/pages/provider_counter/counter.dart';
 import 'package:myfltter1/pages/provider_counter/my_counter_home_page.dart';
 import 'package:myfltter1/router/router.dart';
+import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 
 import 'pages/form_app/form_app.dart';
@@ -21,7 +22,11 @@ void main() {
   };
   // res.map()
 
-  runApp(const FormApp()); //测试表单
+  runApp(
+      OKToast(child:
+           const FormApp()) //测试表单
+        ,);
+
 
   // runApp(MultiProvider(
   //   providers: [
@@ -40,7 +45,7 @@ void main() {
   //         })
   //   ],
   //   child: const MyApp(),
-  // ));//测试状态管理2。Cart
+  // )); //测试状态管理2。Cart
 }
 
 class MyApp extends StatelessWidget {

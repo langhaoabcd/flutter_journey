@@ -120,7 +120,8 @@ class _FormAppState extends State<FormApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return
+      MaterialApp.router(
         title: 'Form Samples',
         locale: _locale,
         localizationsDelegates: AppLocalizations.localizationsDelegates,

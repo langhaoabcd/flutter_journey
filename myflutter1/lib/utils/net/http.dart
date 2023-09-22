@@ -2,6 +2,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:oktoast/oktoast.dart';
 
 class HttpHelper {
   static const String baseUrl = 'http://localhost:5141';
@@ -27,18 +28,25 @@ class HttpHelper {
         case DioExceptionType.sendTimeout: // 请求超时
         case DioExceptionType.receiveTimeout: // 响应超时
           // debugPrint('网络连接超时');
-          Fluttertoast.showToast(
-            msg: '网络连接超时',
-            toastLength: Toast.LENGTH_LONG,
-            gravity: ToastGravity.TOP,
-          );
+          // Fluttertoast.showToast(
+          //   msg: '网络连接超时',
+          //   toastLength: Toast.LENGTH_LONG,
+          //   gravity: ToastGravity.TOP,
+          // );
+
           break;
         case DioExceptionType.connectionError:
           debugPrint('网络连接错误');
-          Fluttertoast.showToast(
-            msg: '无法连接到服务器,请检查你的网络!',
-            toastLength: Toast.LENGTH_LONG,
-            gravity: ToastGravity.CENTER
+          // Fluttertoast.showToast(
+          //   msg: '无法连接到服务器,请检查你的网络!',
+          //   toastLength: Toast.LENGTH_LONG,
+          //   gravity: ToastGravity.CENTER
+          // );
+          //use okToast
+          showToast(
+             '无法连接到服务器,请检查你的网络!',
+            // toastLength: Toast.LENGTH_LONG,
+            // gravity: ToastGravity.CENTER
           );
           // GlobalKey<ScaffoldState> navigatorKey = GlobalKey<ScaffoldState>();
           // AwesomeDialog(

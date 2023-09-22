@@ -1,11 +1,22 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_baidu_mapapi_map/flutter_baidu_mapapi_map.dart';
 import 'package:flutter_bmflocation/flutter_bmflocation.dart';
 import 'package:flutter_baidu_mapapi_base/flutter_baidu_mapapi_base.dart';
 import 'package:myflutter3/widgets/loc_appbar.dart';
+
+const double _kItemExtent = 32.0;
+const List<String> _fruitNames = <String>[
+  'Apple',
+  'Mango',
+  'Banana',
+  'Orange',
+  'Pineapple',
+  'Strawberry',
+];
 
 class SingleLocationPage extends StatefulWidget {
   const SingleLocationPage({Key? key}) : super(key: key);
@@ -58,6 +69,7 @@ class _MyAppState extends State<SingleLocationPage> {
   @override
   Widget build(BuildContext context) {
     List<Widget> resultWidgets = [];
+    int _selectedFruit = 4;
 
     if (_loationResult.locTime != null) {
       _loationResult.getMap().forEach((key, value) {
@@ -83,8 +95,46 @@ class _MyAppState extends State<SingleLocationPage> {
                 children: resultWidgets,
               ),
             ),
-            _createButtonContainer()
-          ]),
+            _createButtonContainer(),
+            Container(
+              height: 216,
+              padding: const EdgeInsets.only(top: 6.0),
+              // The Bottom margin is provided to align the popup above the system navigation bar.
+              margin: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom,
+              ),
+              // Provide a background color for the popup.
+              color: CupertinoColors.systemBackground.resolveFrom(context),
+              // Use a SafeArea widget to avoid system overlaps.
+              child: SafeArea(
+                top: false,
+                child: CupertinoPicker(
+                  looping: true,
+                  magnification: 1.22,
+                  squeeze: 1.2,
+                  useMagnifier: true,
+                  itemExtent: _kItemExtent,
+                  // This sets the initial item.
+                  scrollController: FixedExtentScrollController(
+                    initialItem: _selectedFruit,
+                  ),
+                  // This is called when selected item is changed.
+                  onSelectedItemChanged: (int selectedItem) {
+                    setState(() {
+                      _selectedFruit = selectedItem;
+                    });
+                  },
+                  children:
+                  List<Widget>.generate(_fruitNames.length, (int index) {
+                    return Center(child: Text(_fruitNames[index]));
+                  }),
+                ),
+              ),
+            )
+          ]
+          ,
+
+          ),
         ));
   }
 

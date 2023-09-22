@@ -10,6 +10,12 @@ flutter.cn samples: https://github.com/cfug/flutter.cn/tree/main/examples
 flutter.dev samples: https://github.com/flutter/samples/tree/main/provider_shopper
 mpflutter https://mpflutter.com/
 
+
+## 参考项目
+【Flutter 集录指南 App】The unity of flutter, The unity of coder.
+https://github.com/toly1994328/FlutterUnit
+
+
 ## Dart基础
  flutter_appauth
  flutter_secure_storage: 可用于存储令牌、配置等机密信息,保证安全。
@@ -21,6 +27,8 @@ mpflutter https://mpflutter.com/
 --GlobalKey获取buildContext
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 navigatorKey.currentContext
+
+## 常用组件
 flutter_spinkit loading动画库
 OkToast/FlutterToast(各个平台样式会不一致)
 

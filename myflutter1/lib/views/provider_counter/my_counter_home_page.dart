@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myfltter1/pages/provider_counter/counter.dart';
 import 'package:provider/provider.dart';
+
+import '../../states/CounterState.dart';
 
 class MyCounterHomePage extends StatelessWidget {
   const MyCounterHomePage({Key? key}) : super(key: key);

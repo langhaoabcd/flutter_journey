@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myfltter1/pages/provider_cart/models/catalog_model.dart';
-import 'package:myfltter1/pages/provider_cart/store/cart_model.dart';
+import 'package:myfltter1/views/provider_cart/models/catalog_model.dart';
 import 'package:provider/provider.dart';
+
+import '../../states/CartState.dart';
 
 class MyCatalog extends StatelessWidget {
   const MyCatalog({Key? key}) : super(key: key);

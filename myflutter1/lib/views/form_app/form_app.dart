@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myfltter1/pages/form_app/web_view_page.dart';
-import 'package:myfltter1/pages/layout/container_page.dart';
-import 'package:myfltter1/pages/layout/row_column.dart';
-import 'package:myfltter1/pages/layout/sizing.dart';
+import 'package:myfltter1/views/form_app/web_view_page.dart';
+import 'package:myfltter1/views/layout/container_page.dart';
+import 'package:myfltter1/views/layout/row_column.dart';
+import 'package:myfltter1/views/layout/sizing.dart';
 import 'package:myfltter1/theme/app_theme.dart';
 import 'package:myfltter1/widgets/xi_deng_logo.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -91,7 +91,7 @@ final _router = GoRouter(routes: [
 ]);
 
 class FormApp extends StatefulWidget {
-  const FormApp({Key? key}) : super(key: key);
+  FormApp({Key? key}) : super(key: key);
 
   @override
   _FormAppState createState() => _FormAppState();
@@ -103,7 +103,8 @@ class _FormAppState extends State<FormApp> {
 
   @override
   void initState() {
-    _theme = lightTheme; //darkTheme; //切换主题，可自动系统追随设置深浅色主题
+    _theme = lightTheme;
+    // lightTheme; //darkTheme; //切换主题，可自动系统追随设置深浅色主题
     _locale = Locale('zh'); //切换语言，可将配置保存在本地
   }
 

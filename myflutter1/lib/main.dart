@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:myfltter1/pages/provider_cart/models/catalog_model.dart';
-import 'package:myfltter1/pages/provider_cart/store/cart_model.dart';
-import 'package:myfltter1/pages/provider_counter/counter.dart';
-import 'package:myfltter1/pages/provider_counter/my_counter_home_page.dart';
+import 'package:myfltter1/views/providerTheme/PersonApp.dart';
+import 'package:myfltter1/views/provider_cart/models/catalog_model.dart';
+import 'package:myfltter1/views/provider_counter/my_counter_home_page.dart';
 import 'package:myfltter1/router/router.dart';
+import 'package:myfltter1/theme/app_theme.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 
-import 'pages/form_app/form_app.dart';
+import 'views/form_app/form_app.dart';
 
 void main() {
   // runApp(const MyApp());
@@ -17,6 +17,8 @@ void main() {
   //   child: const MyCounterHomePage(),
   // )); //测试状态管理1。Counter
 
+  runApp(const PersonApp()); //测试状态切换主题
+
   Map<String, dynamic> res = <String, dynamic>{
     'id': "111",
     'author': "aaaa",
@@ -24,7 +26,10 @@ void main() {
   // res.map()
   // Intl.defaultLocale = 'zh_CN';
 
-  runApp(const FormApp()); //测试表单
+  // runApp(DefaultTextStyle(
+  //   style: const TextStyle(fontFamily: 'NotoSansSc'),
+  //   child: FormApp(),
+  // )); //测试表单
 
   // runApp(MultiProvider(
   //   providers: [

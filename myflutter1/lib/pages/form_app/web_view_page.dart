@@ -56,7 +56,7 @@
 //         PlatformWebViewWidgetCreationParams(controller: _controller),
 //       ).build(context),
 //     );
-//     // return WebviewScaffold(
+//     // return Webpagescaffold(
 //     //   appBar: new AppBar(
 //     //     title: const Text('Widget webview'),
 //     //   ),

@@ -5,43 +5,30 @@ enum MyTheme { light, dark }
 class ThemeState with ChangeNotifier {
   static List<ThemeData> themes = [
     ThemeData(
-        colorScheme: const ColorScheme(
-            primary: Colors.redAccent, //上方标题栏颜色
-            primaryVariant: Colors.white,
-            secondary: Colors.green,
-            background: Colors.white,
-            error: Colors.red,
-            brightness: Brightness.light,
-            onBackground: Colors.pink,
-            secondaryVariant: Colors.white,
-            onError: Colors.yellow,
-            onPrimary: Colors.white, //字体颜色
-            onSecondary: Colors.redAccent,
-            onSurface: Colors.redAccent,
-            surface: Colors.redAccent
-            // all fields should have a value
-            )),
+  fontFamily: 'NotoSansSc', //默认字体
+  brightness: Brightness.light,
+  primaryColor: Colors.white,
+  textTheme: const TextTheme(
+    displayLarge: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
+    titleLarge: TextStyle(fontSize: 36, fontStyle: FontStyle.italic),
+    bodyMedium: TextStyle(fontSize: 14),
+  ),
+),
     ThemeData(
-        colorScheme: const ColorScheme(
-            primary: Colors.redAccent, //上方标题栏颜色
-            primaryVariant: Colors.white,
-            secondary: Colors.green,
-            background: Colors.white,
-            error: Colors.red,
-            brightness: Brightness.dark,
-            onBackground: Colors.pink,
-            secondaryVariant: Colors.white,
-            onError: Colors.yellow,
-            onPrimary: Colors.white, //字体颜色
-            onSecondary: Colors.redAccent,
-            onSurface: Colors.redAccent,
-            surface: Colors.redAccent
-            // all fields should have a value
-            )),
+  fontFamily: 'NotoSansSc', //全局指定字体
+  brightness: Brightness.dark,
+  primaryColor: Colors.black,
+  // fontFamily: GoogleFonts.getFont('NotoSansSc').fontFamily, //.PingFangSC(), //'Hind',
+  textTheme: const TextTheme(
+    displayLarge: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
+    titleLarge: TextStyle(fontSize: 36, fontStyle: FontStyle.italic),
+    bodyMedium: TextStyle(fontSize: 14),
+  ),
+)   
   ];
 
-  MyTheme _currentTheme = MyTheme.dark;
-  ThemeData _currentThemeData = themes[1];
+  MyTheme _currentTheme = MyTheme.light;
+  ThemeData _currentThemeData = themes[0];
 
   void initTheme(MyTheme t) {
     if (t == MyTheme.dark) {

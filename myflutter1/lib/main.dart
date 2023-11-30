@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:myfltter1/views/providerTheme/PersonApp.dart';
-import 'package:myfltter1/views/provider_cart/models/catalog_model.dart';
-import 'package:myfltter1/views/provider_counter/my_counter_home_page.dart';
+import 'package:myfltter1/pages/providerTheme/PersonApp.dart';
+import 'package:myfltter1/pages/provider_cart/models/catalog_model.dart';
+import 'package:myfltter1/pages/provider_counter/my_counter_home_page.dart';
 import 'package:myfltter1/router/router.dart';
 import 'package:myfltter1/theme/app_theme.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 
-import 'views/form_app/form_app.dart';
+import 'pages/form_app/form_app.dart';
 
 void main() {
   // runApp(const MyApp());

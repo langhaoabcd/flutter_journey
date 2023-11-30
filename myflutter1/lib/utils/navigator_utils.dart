@@ -305,7 +305,7 @@ class NavigatorUtils {
 
   //             ///不受系统字体缩放影响
   //             data: MediaQueryData.fromView(
-  //                     WidgetsBinding.instance.platformDispatcher.views.first)
+  //                     WidgetsBinding.instance.platformDispatcher.pages.first)
   //                 .copyWith(textScaleFactor: 1),
   //             child: NeverOverScrollIndicator(
   //               needOverload: false,

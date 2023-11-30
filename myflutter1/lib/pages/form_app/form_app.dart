@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myfltter1/views/form_app/web_view_page.dart';
-import 'package:myfltter1/views/layout/container_page.dart';
-import 'package:myfltter1/views/layout/row_column.dart';
-import 'package:myfltter1/views/layout/sizing.dart';
+import 'package:myfltter1/pages/form_app/web_view_page.dart';
+import 'package:myfltter1/pages/layout/container_page.dart';
+import 'package:myfltter1/pages/layout/row_column.dart';
+import 'package:myfltter1/pages/layout/sizing.dart';
 import 'package:myfltter1/theme/app_theme.dart';
 import 'package:myfltter1/widgets/xi_deng_logo.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';

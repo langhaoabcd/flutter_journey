@@ -1,8 +1,8 @@
 import 'package:go_router/go_router.dart';
 
-import '../views/provider_cart/my_cart.dart';
-import '../views/provider_cart/my_catalog.dart';
-import '../views/provider_cart/my_login.dart';
+import '../pages/provider_cart/my_cart.dart';
+import '../pages/provider_cart/my_catalog.dart';
+import '../pages/provider_cart/my_login.dart';
 
 GoRouter router() {
   return GoRouter(

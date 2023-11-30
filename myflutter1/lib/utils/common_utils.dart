@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../constants/address.dart';
-import '../constants/gsy_style.dart';
+import '../model/constants/address.dart';
+import '../model/constants/gsy_style.dart';
+
 
 /// 通用逻辑
-/// Created by guoshuyu
 /// Date: 2018-07-16
 
 typedef StringList = List<String>;

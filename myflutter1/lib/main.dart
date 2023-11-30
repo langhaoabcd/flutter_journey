@@ -9,15 +9,16 @@ import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 
 import 'pages/form_app/form_app.dart';
+import 'states/CounterState.dart';
 
 void main() {
   // runApp(const MyApp());
-  // runApp(ChangeNotifierProvider(
-  //   create: (context) => Counter(),
-  //   child: const MyCounterHomePage(),
-  // )); //测试状态管理1。Counter
+  runApp(MultiProvider(
+    providers: [ChangeNotifierProvider(create: (context) => Counter())],
+    child: const MyCounterHomePage(),
+  )); //测试状态管理1。Counter
 
-  runApp(const PersonApp()); //测试状态切换主题
+  // runApp(constPersonApp()); //测试状态3 切换主题
 
   Map<String, dynamic> res = <String, dynamic>{
     'id': "111",

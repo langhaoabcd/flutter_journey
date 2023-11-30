@@ -23,11 +23,17 @@ class MyCounterHomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text('ou have pushed the button this many times:'),
-                Consumer<Counter>(
-                    builder: (context, counter, child) => Text(
-                          '${counter.counter}',
-                          style: Theme.of(context).textTheme.headlineMedium,
-                        ))
+                // Consumer<Counter>(
+                //     builder: (context, counter, child) => Text(
+                //           '${counter.counter}',
+                //           style: Theme.of(context).textTheme.headlineMedium,
+                //         ))
+                Text(
+                  // Calls `context.watch` to make [Count] rebuild when
+                  // [Counter] changes.
+                  '${context.watch<Counter>().counter}',
+                    key: const Key('counterState'),
+                    style: Theme.of(context).textTheme.headlineMedium)
               ],
             ),
           ),
@@ -35,8 +41,9 @@ class MyCounterHomePage extends StatelessWidget {
             onPressed: () {
               // do somethin
               // context.select((value) => null;)
-              var counter = context.read<Counter>();
-              counter.increment();
+              // Calls `context.read` instead of `context.watch` so
+              // that it does not rebuild when [Counter] changes.
+              context.read<Counter>().increment();
               print('increment ok');
               // var cart = context.watch<Counter>();
               // var isInCart = context.select<Counter, bool>(

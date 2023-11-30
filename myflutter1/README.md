@@ -60,6 +60,15 @@ OkToast/FlutterToast(各个平台样式会不一致)
 2.表单交互
 3.状态管理
   provider -> https://github.com/rrousselGit/provider/blob/master/resources/translations/zh-CN/README.md
+  链接1: https://juejin.cn/post/6844903864852807694
+  链接2: https://juejin.cn/post/6844904145774870536
+  在 Provider.o 中获取 Model 的方式会影响刷新范围,会刷新整个页面。所以，请尽量使用 Consumer 来获取祖先 Model，以维持最小刷新范围。
+  Selector相较于 Cosumer，提供了更细粒度的刷新控制。某个组件只关心Model中某个数据变化，可以考虑用Selector，即整体与局部。特别需要指明的是selector的结果，必须是不可变的对象。 如果同一个对象，只是改变对象属性，那shouldRebuild的两个值永远是相等的。
+      作者：mwq30123
+      链接：https://juejin.cn/post/6844904145774870536
+      来源：稀土掘金
+      著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
 4.序列化 -> https://flutter.cn/docs/data-and-backend/serialization/json
       使用json_annotation以及自动生成分布类!!!
       flutter pub add json_annotation
@@ -89,3 +98,10 @@ OkToast/FlutterToast(各个平台样式会不一致)
 .百度地图(android&ios) -> https://lbsyun.baidu.com/faq/api?title=flutter/loc/guide/solocationMany
   keystore
   sha1
+
+打开iOS模拟器
+open -a Simulator
+flutter run
+
+在浏览器中运行
+flutter run -d chrome

@@ -5,11 +5,11 @@ import 'package:myfltter1/pages/layout/container_page.dart';
 import 'package:myfltter1/pages/layout/row_column.dart';
 import 'package:myfltter1/pages/layout/sizing.dart';
 import 'package:myfltter1/theme/app_theme.dart';
-import 'package:myfltter1/widgets/xi_deng_logo.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/myflutter_app_localizations.dart';
 import 'package:oktoast/oktoast.dart';
 
+import '../../common/widgets/xi_deng_logo.dart';
 import '../layout/page1.dart';
 import '../layout/grild_list1.dart';
 import 'autofill.dart';

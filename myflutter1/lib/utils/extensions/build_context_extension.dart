@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+
+import '../../common/widgets/bool_text_button.dart';
+import '../../common/widgets/dialog_result_button.dart';
+import '../../common/widgets/loading_dialog.dart';
 // import 'package:myfltter1/models/AppConfigModel.dart';
-import 'package:myfltter1/widgets/common/bool_text_button.dart';
-import 'package:myfltter1/widgets/common/dialog_result_button.dart';
-import 'package:myfltter1/widgets/common/loading_dialog.dart';
 
 extension ContextExtension on BuildContext {
   Future<bool?> showMsg(

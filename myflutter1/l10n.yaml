@@ -1,3 +1,3 @@
-arb-dir: lib/l10n
+arb-dir: lib/common/l10n
 template-arb-file: lang_en.arb
 output-localization-file: myflutter_app_localizations.dart

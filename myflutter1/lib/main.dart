@@ -9,16 +9,27 @@ import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 
 import 'pages/form_app/form_app.dart';
+import 'pages/provider_selector/SelectorApp.dart';
+import 'states/CartState.dart';
 import 'states/CounterState.dart';
 
 void main() {
   // runApp(const MyApp());
-  runApp(MultiProvider(
-    providers: [ChangeNotifierProvider(create: (context) => Counter())],
-    child: const MyCounterHomePage(),
-  )); //测试状态管理1。Counter
+  // runApp(MultiProvider(
+  //   providers: [ChangeNotifierProvider(create: (context) => Counter())],
+  //   child: const MyCounterHomePage(),
+  // )); //测试状态管理1。Counter
 
-  // runApp(constPersonApp()); //测试状态3 切换主题
+  // runApp(constPersonApp()); //测试状态2 切换主题
+
+  // runApp(MaterialApp(
+  //     home: Scaffold(
+  //       appBar: AppBar(
+  //         title: const Text("Provider Selector"),
+  //       ),
+  //       body: SelectorApp(),
+  //     ),
+  //   ));//测试状态3 Selector使用
 
   Map<String, dynamic> res = <String, dynamic>{
     'id': "111",
@@ -32,24 +43,24 @@ void main() {
   //   child: FormApp(),
   // )); //测试表单
 
-  // runApp(MultiProvider(
-  //   providers: [
-  //     // In this sample app, CatalogModel never changes, so a simple Provider
-  //     // is sufficient.
-  //     Provider(create: (context) => CatalogModel()),
-  //     // CartModel is implemented as a ChangeNotifier, which calls for the use
-  //     // of ChangeNotifierProvider. Moreover, CartModel depends
-  //     // on CatalogModel, so a ProxyProvider is needed.
-  //     ChangeNotifierProxyProvider<CatalogModel, CartModel>(
-  //         create: (context) => CartModel(),
-  //         update: (context, catalog, cart) {
-  //           if (cart == null) throw ArgumentError.notNull('cart');
-  //           cart.catalog = catalog;
-  //           return cart;
-  //         })
-  //   ],
-  //   child: const MyApp(),
-  // )); //测试状态管理2。Cart
+  runApp(MultiProvider(
+    providers: [
+      // In this sample app, CatalogModel never changes, so a simple Provider
+      // is sufficient.
+      Provider(create: (context) => CatalogModel()),
+      // CartModel is implemented as a ChangeNotifier, which calls for the use
+      // of ChangeNotifierProvider. Moreover, CartModel depends
+      // on CatalogModel, so a ProxyProvider is needed.
+      ChangeNotifierProxyProvider<CatalogModel, CartModel>(
+          create: (context) => CartModel(),
+          update: (context, catalog, cart) {
+            if (cart == null) throw ArgumentError.notNull('cart');
+            cart.catalog = catalog;
+            return cart;
+          })
+    ],
+    child: const MyApp(),
+  )); //测试状态管理4。购物车 Cart
 }
 
 class MyApp extends StatelessWidget {

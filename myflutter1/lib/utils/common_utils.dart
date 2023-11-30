@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../model/constants/address.dart';
-import '../model/constants/gsy_style.dart';
+import '../model/consts/address.dart';
+import '../model/consts/gsy_style.dart';
+
 
 
 /// 通用逻辑

@@ -38,6 +38,9 @@ class SelectorItem extends StatelessWidget {
   Widget build(BuildContext context) {
     print('SelectorItemWidget:build');
     return Container(
+        decoration: const BoxDecoration(
+        color: Color.fromARGB(66, 193, 149, 149),
+      ),
         height: 80,
         padding: const EdgeInsets.all(15),
         alignment: Alignment.center,
